@@ -1,0 +1,77 @@
+<!-- Rechercher des cours -->
+<div class="content">
+  <h1 class="text-center">Tous tes cours et tes livres accessibles quand tu veux !</h1>
+  <br>
+  <p>Que souhaites tu apprendre ?</p>
+  <br><br>
+  <div style="width: 50%;">
+    <form class="example">
+      <input style="background-color: #deefe5;" class="text-center" type="text" placeholder="Rechercher des cours, livres, documents, ..." name="search">
+      <button style="background-color: #008036;"  type="submit"><i class="fa fa-search"></i></button>
+    </form>
+  </div>
+  <div class="popular text-center">
+    <button type="button" class="btn btn-disabled btn-sm popular-3" >Populaires :</button>
+    <button type="button" class="btn btn-success btn-sm popular-3" >Popular 3</button>
+    <button type="button" class="btn btn-warning btn-sm popular-4" >Popular 4</button>
+    <button type="button" class="btn btn-info btn-sm popular-5" >Popular 5</button>
+  </div>
+</div>
+
+
+<!-- telechargement de l'apk -->
+<div class="content" style="margin-bottom: 1px;">
+  <h1 class="text-center">Pas assez de data internet ?</h1>
+  <div class="card-container">
+    <a class="card-app"  rel="noopener" href="" style="background-color: #deefe5; color:#008036;">
+      <span class="text-center">Télécharger l'application</span>
+    </a>
+  </div>
+</div>
+
+<div class="content" role="main">
+  <div class="row content" style="margin-top: 1px;">
+    <!-- classes -->
+    <h2 class="text-center">Choisis ta classe pour commencer</h2>
+    <div class="card-container">
+      <a name="6" routerLink="/cours/{{numberMatiere}}" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+        <span>Sixième</span>
+      </a>
+      <a routerLink="/cours/5" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+        <span>Cinquième</span>
+      </a>
+      <a routerLink="/cours/4" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+        <span>Quatrième</span>
+      </a>
+      <a routerLink="/cours/3" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
+        <span>Troisième</span>
+      </a>
+      <a routerLink="/cours/2" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+        <span>Seconde</span>
+      </a>
+      <a routerLink="/cours/1" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
+        <span>Première</span>
+      </a>
+      <a routerLink="/cours/7" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
+        <span>Terminale</span>
+      </a>
+    </div>
+  </div>
+
+
+  <div class="row content">
+    <!-- ressources pour le primaire -->
+    <h2 class="text-center">Ressources pour le primaire</h2>
+    <div class="card-container">
+      <a (click)="onClickRessource()" class="card"  rel="noopener" href="" style="background-color: #deefe5; color:#008036;">
+        <span>Mathématiques</span>
+      </a>
+      <a (click)="onClickRessource()" class="card"  rel="noopener" href="" style="background-color: #deefe5; color:#008036;">
+        <span>Français</span>
+      </a>
+      <a (click)="onClickRessource()" class="card"  rel="noopener" href="" style="background-color: #deefe5; color:#008036;">
+        <span>Anglais</span>
+      </a>
+    </div>
+  </div>
+</div>

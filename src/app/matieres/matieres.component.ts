@@ -7,11 +7,11 @@ import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
   styleUrls: ['./matieres.component.scss'],
 })
 export class MatieresComponent implements OnInit {
-  constructor(private router: Router, private activelink: ActivatedRoute) {
-    console.log("I'm there");
+  constructor(private route: ActivatedRoute) {
+    this.route.params.subscribe((params) => console.log(params));
   }
 
   ngOnInit(): void {
-    console.log(this.activelink.snapshot.params['classe']);
+    // console.log(this.activelink.snapshot.params['classe']);
   }
 }

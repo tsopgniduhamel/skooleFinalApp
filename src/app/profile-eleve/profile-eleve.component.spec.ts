@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ClasseComponent } from './classe.component';
+import { ProfileEleveComponent } from './profile-eleve.component';
 
-describe('ClasseComponent', () => {
-  let component: ClasseComponent;
-  let fixture: ComponentFixture<ClasseComponent>;
+describe('ProfileEleveComponent', () => {
+  let component: ProfileEleveComponent;
+  let fixture: ComponentFixture<ProfileEleveComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ClasseComponent ]
+      declarations: [ ProfileEleveComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ClasseComponent);
+    fixture = TestBed.createComponent(ProfileEleveComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

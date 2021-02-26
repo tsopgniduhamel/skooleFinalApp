@@ -14,9 +14,10 @@ import { AideComponent } from './aide/aide.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { MatieresComponent } from './classe/matieres/matieres.component';
+import { MatieresComponent } from './matieres/matieres.component';
 import { ChapitreDetailComponent } from './chapitre-detail/chapitre-detail.component';
-import { ClasseComponent } from './classe/classe.component';
+import { ProfileEleveComponent } from './profile-eleve/profile-eleve.component';
+import { ProfileEnseignantComponent } from './profile-enseignant/profile-enseignant.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ClasseComponent } from './classe/classe.component';
     PageNotFoundComponent,
     MatieresComponent,
     ChapitreDetailComponent,
-    ClasseComponent,
+    ProfileEleveComponent,
+    ProfileEnseignantComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
   providers: [],

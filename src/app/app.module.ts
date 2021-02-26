@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 import 'hammerjs';
 
@@ -18,6 +19,8 @@ import { MatieresComponent } from './matieres/matieres.component';
 import { ChapitreDetailComponent } from './chapitre-detail/chapitre-detail.component';
 import { ProfileEleveComponent } from './profile-eleve/profile-eleve.component';
 import { ProfileEnseignantComponent } from './profile-enseignant/profile-enseignant.component';
+import { CoursService } from './services/cours.service';
+import { CurrentPathService } from './services/current-path.service';
 
 @NgModule({
   declarations: [
@@ -35,8 +38,13 @@ import { ProfileEnseignantComponent } from './profile-enseignant/profile-enseign
     ProfileEleveComponent,
     ProfileEnseignantComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule],
-  providers: [],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+  ],
+  providers: [CoursService, CurrentPathService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

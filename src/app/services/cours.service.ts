@@ -1,25 +1,37 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Cours } from '../models/cours';
 
 @Injectable({
   providedIn: 'root',
 })
 export class CoursService {
   apiUrl: string = 'http://franklinduval.pythonanywhere.com/';
+  coursDuneClasse: Array<string> = [];
+  chapitresDuneMatiereDuneClasse: Array<Cours> = [];
+  detailDunChapitre: Cours = {
+    id: 1,
+    title: '',
+    detailImage: '',
+    video: '',
+    content: '',
+    rating: 0,
+    keywords: '',
+    upload_date: '',
+    update_date: '',
+    validated: false,
+    subject: '',
+    level: '',
+  };
 
   constructor(private http: HttpClient) {}
 
-  getAllCourses() {
-    return this.http.get(this.apiUrl + `api/course`);
+  getCoursDuneClasse(classe: string): Observable<Array<string>> {
+    return this.http.get<Array<string>>(this.apiUrl + 'api/' + classe);
   }
 
-  getCourse(id: string) {
-    return this.http.get(this.apiUrl + `api/course/` + id);
-  }
+  getChapitresDuneMatiereDuneClasse(classe: string, matiere: string) {}
 
-  getTousLesCoursDuneMatiereDuneClasse(idClasse: string, matiere: string) {
-    return this.http.get(
-      this.apiUrl + `/api/course?subject=` + matiere + `&level=` + idClasse
-    );
-  }
+  getDetailDunChapitre(classe: string, matiere: string, titre: string) {}
 }

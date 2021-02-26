@@ -21,18 +21,9 @@ const routes: Routes = [
   { path: 'aide', component: AideComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
-  {
-    path: 'cours/:classe',
-    component: MatieresComponent,
-  },
-  {
-    path: 'cours/:classe/:subject',
-    component: ChapitresComponent,
-  },
-  {
-    path: 'cours/:classe/:subject/:title',
-    component: ChapitreDetailComponent,
-  },
+  { path: 'cours/:classe', component: MatieresComponent },
+  { path: 'cours/:classe/:subject', component: ChapitresComponent },
+  { path: 'cours/:classe/:subject/:title', component: ChapitreDetailComponent },
   { path: 'profile-eleve', component: ProfileEleveComponent },
   { path: 'profile-enseignant', component: ProfileEnseignantComponent },
   { path: '', pathMatch: 'full', component: AcceuilComponent },

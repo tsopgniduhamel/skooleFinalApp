@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Cours } from '../models/cours';
 import { CoursService } from './../services/cours.service';
+import { CurrentPathService } from './../services/current-path.service';
 
 @Component({
   selector: 'app-chapitres',
@@ -9,14 +11,24 @@ import { CoursService } from './../services/cours.service';
 })
 export class ChapitresComponent implements OnInit {
   public tousLesCours: any;
-  constructor(private coursService: CoursService) {
+  constructor(
+    private coursService: CoursService,
+    private router: Router,
+    private currentPathService: CurrentPathService
+  ) {
     console.log('bonjour');
   }
 
-  getAllChapters() {
-    this.coursService.getAllCourses().subscribe((tousLesCours) => {
-      this.tousLesCours = tousLesCours;
-    });
+  goLecon(titre: string) {
+    this.router.navigate([
+      'cours',
+      this.currentPathService.getClasse(),
+      this.currentPathService.getMatiere(),
+      titre,
+    ]);
+    this.currentPathService.setLecon(titre);
+    console.log(this.router.url);
   }
+
   ngOnInit(): void {}
 }

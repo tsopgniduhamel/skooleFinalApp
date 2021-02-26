@@ -34,25 +34,25 @@
     <!-- classes -->
     <h2 class="text-center">Choisis ta classe pour commencer</h2>
     <div class="card-container">
-      <a name="6" routerLink="/cours/{{numberMatiere}}" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+      <a (click)="goMatiere('sixieme')" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
         <span>Sixième</span>
       </a>
-      <a routerLink="/cours/5" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+      <a (click)="goMatiere('cinquieme')" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
         <span>Cinquième</span>
       </a>
-      <a routerLink="/cours/4" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+      <a (click)="goMatiere('quatrieme')" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
         <span>Quatrième</span>
       </a>
-      <a routerLink="/cours/3" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
+      <a (click)="goMatiere('troisieme')" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
         <span>Troisième</span>
       </a>
-      <a routerLink="/cours/2" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+      <a (click)="goMatiere('seconde')" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
         <span>Seconde</span>
       </a>
-      <a routerLink="/cours/1" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
+      <a (click)="goMatiere('premiere')" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
         <span>Première</span>
       </a>
-      <a routerLink="/cours/7" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
+      <a (click)="goMatiere('terminale')" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #faf5e2; color:#ebc63f;">
         <span>Terminale</span>
       </a>
     </div>

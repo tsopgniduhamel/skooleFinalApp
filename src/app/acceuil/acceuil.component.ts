@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { CurrentPathService } from './../services/current-path.service';
 
 @Component({
   selector: 'app-acceuil',
@@ -7,18 +8,18 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./acceuil.component.scss'],
 })
 export class AcceuilComponent implements OnInit {
-  // private level = '';
-  // private cheminMatieres = '/matieres/' + this.level;
-  public numberMatiere: string = '6';
-  constructor(private router: Router) {}
+  constructor(
+    private router: Router,
+    private currentPathService: CurrentPathService
+  ) {}
 
-  // onClickClasse() {
-  //   this.router.navigate(['/aide']);
-  //   console.log(this.level);
-  // }
-  onClickRessource() {
-    this.router.navigate(['/']);
+  goMatiere(classe: string) {
+    this.router.navigate(['cours', classe]);
+    this.currentPathService.setClasse(classe);
+    // console.log(this.router.url);
   }
+
+  onClickRessource() {}
 
   ngOnInit(): void {}
 }

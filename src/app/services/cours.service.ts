@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Cours } from '../models/cours';
+import { Matiere } from '../models/matiere';
 
 @Injectable({
   providedIn: 'root',
@@ -27,11 +28,13 @@ export class CoursService {
 
   constructor(private http: HttpClient) {}
 
-  getCoursDuneClasse(classe: string): Observable<Array<string>> {
-    return this.http.get<Array<string>>(this.apiUrl + 'api/' + classe);
+  getCoursDuneClasse(classe: string): Observable<Array<Matiere>> {
+    return this.http.get<Array<Matiere>>(this.apiUrl + 'api/subject/');
   }
 
-  getChapitresDuneMatiereDuneClasse(classe: string, matiere: string) {}
+  getChapitresDuneMatiereDuneClasse(classe: string, matiere: string) {
+    return this.http.get<Array<Cours>>(this.apiUrl + 'api/course/');
+  }
 
   getDetailDunChapitre(classe: string, matiere: string, titre: string) {}
 }

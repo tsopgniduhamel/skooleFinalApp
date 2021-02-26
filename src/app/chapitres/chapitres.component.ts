@@ -10,14 +10,12 @@ import { CurrentPathService } from './../services/current-path.service';
   styleUrls: ['./chapitres.component.scss'],
 })
 export class ChapitresComponent implements OnInit {
-  public tousLesCours: any;
+  tousLesCours: any;
   constructor(
     private coursService: CoursService,
     private router: Router,
     private currentPathService: CurrentPathService
-  ) {
-    console.log('bonjour');
-  }
+  ) {}
 
   goLecon(titre: string) {
     this.router.navigate([
@@ -30,5 +28,16 @@ export class ChapitresComponent implements OnInit {
     console.log(this.router.url);
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.coursService
+      .getChapitresDuneMatiereDuneClasse(
+        this.currentPathService.getClasse(),
+        this.currentPathService.getMatiere()
+      )
+      .subscribe((tousLesCours) => {
+        this.tousLesCours = tousLesCours;
+      });
+    console.log('la route courante est : ', this.router.url);
+    console.log('voici la liste des cours: ', this.tousLesCours);
+  }
 }

@@ -21,6 +21,11 @@ import { ProfileEleveComponent } from './profile-eleve/profile-eleve.component';
 import { ProfileEnseignantComponent } from './profile-enseignant/profile-enseignant.component';
 import { CoursService } from './services/cours.service';
 import { CurrentPathService } from './services/current-path.service';
+import { ExamenEpreuvesComponent } from './examen-epreuves/examen-epreuves.component';
+import { ExamenEpreuveDetailComponent } from './examen-epreuve-detail/examen-epreuve-detail.component';
+import { ExercicesClassesComponent } from './exercices-classes/exercices-classes.component';
+import { ExercicesMatiereComponent } from './exercices-matiere/exercices-matiere.component';
+import { ExerciceDetailComponent } from './exercice-detail/exercice-detail.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +42,11 @@ import { CurrentPathService } from './services/current-path.service';
     ChapitreDetailComponent,
     ProfileEleveComponent,
     ProfileEnseignantComponent,
+    ExamenEpreuvesComponent,
+    ExamenEpreuveDetailComponent,
+    ExercicesClassesComponent,
+    ExercicesMatiereComponent,
+    ExerciceDetailComponent,
   ],
   imports: [
     BrowserModule,

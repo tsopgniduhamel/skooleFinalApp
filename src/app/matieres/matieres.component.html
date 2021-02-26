@@ -2,7 +2,7 @@
   <h1 class="text-center">Choisis la matière pour continuer ... </h1>
   <div class="card-container">
     <a *ngFor="let matiere of listeDesMatieres" (click)="goChapitres('mathematiques'); getListeDesMatieres()" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
-      <span>{{matiere}}</span>
+      <span>{{matiere.name}}</span>
     </a>
   </div>
 

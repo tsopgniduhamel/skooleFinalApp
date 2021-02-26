@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLinkActive } from '@angular/router';
+import { Matiere } from '../models/matiere';
 import { CoursService } from '../services/cours.service';
 import { CurrentPathService } from '../services/current-path.service';
 
@@ -9,23 +10,30 @@ import { CurrentPathService } from '../services/current-path.service';
   styleUrls: ['./matieres.component.scss'],
 })
 export class MatieresComponent implements OnInit {
-  listeDesMatieres: Array<string> = [
-    'Maths',
-    'Physique',
-    'Chimie',
-    'Anglais',
-    'Mecanique',
-    'SVT',
-  ];
+  // listeDesMatieres: Array<string> = [
+  //   'Maths',
+  //   'Physique',
+  //   'Chimie',
+  //   'Anglais',
+  //   'Mecanique',
+  //   'SVT',
+  // ];
+
+  listeDesMatieres: Array<Matiere> = [];
+
   constructor(
     private coursService: CoursService,
     private route: ActivatedRoute,
     private router: Router,
     private currentPathService: CurrentPathService
-  ) {
-    this.route.params.subscribe((params) => console.log(params));
-  }
+  ) {}
+
   ngOnInit(): void {
+    this.coursService
+      .getCoursDuneClasse('terminale')
+      .subscribe((listeDesMatieres) => {
+        this.listeDesMatieres = listeDesMatieres;
+      });
     console.log('la liste des matieres est : ', this.listeDesMatieres);
   }
 
@@ -36,7 +44,6 @@ export class MatieresComponent implements OnInit {
       matiere,
     ]);
     this.currentPathService.setMatiere(matiere);
-    console.log('la route courante est : ', this.router.url);
   }
 
   getListeDesMatieres() {}

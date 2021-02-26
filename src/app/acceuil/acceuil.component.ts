@@ -16,7 +16,7 @@ export class AcceuilComponent implements OnInit {
   goMatiere(classe: string) {
     this.router.navigate(['cours', classe]);
     this.currentPathService.setClasse(classe);
-    // console.log(this.router.url);
+    console.log(this.router.url);
   }
 
   onClickRessource() {}

@@ -26,10 +26,27 @@ export class CoursService {
     level: '',
   };
 
+  classeToId = {
+    sixieme: '1',
+    cinquieme: '2',
+    quatrieme: '3',
+    troisieme: '4',
+    seconde: '5',
+    premiere: '6',
+    terminale: '7',
+  };
+
+  matiereToId = {
+    physique: '1',
+    mathematiques: '2',
+    chimie: '3',
+    biologie: '4',
+  };
+
   constructor(private http: HttpClient) {}
 
   getCoursDuneClasse(classe: string): Observable<Array<Matiere>> {
-    return this.http.get<Array<Matiere>>(this.apiUrl + 'api/subject/');
+    return this.http.get<Array<Matiere>>(this.apiUrl + 'api/getSubjectClass/1');
   }
 
   getChapitresDuneMatiereDuneClasse(classe: string, matiere: string) {

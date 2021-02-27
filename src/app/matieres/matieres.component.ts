@@ -30,7 +30,7 @@ export class MatieresComponent implements OnInit {
 
   ngOnInit(): void {
     this.coursService
-      .getCoursDuneClasse('terminale')
+      .getCoursDuneClasse(this.currentPathService.getClasse())
       .subscribe((listeDesMatieres) => {
         this.listeDesMatieres = listeDesMatieres;
       });

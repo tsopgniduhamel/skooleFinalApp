@@ -11,47 +11,104 @@ export class CoursService {
   apiUrl: string = 'http://franklinduval.pythonanywhere.com/';
   coursDuneClasse: Array<string> = [];
   chapitresDuneMatiereDuneClasse: Array<Cours> = [];
-  detailDunChapitre: Cours = {
-    id: 1,
-    title: '',
-    detailImage: '',
-    video: '',
-    content: '',
-    rating: 0,
-    keywords: '',
-    upload_date: '',
-    update_date: '',
-    validated: false,
-    subject: '',
-    level: '',
-  };
-
-  classeToId = {
-    sixieme: '1',
-    cinquieme: '2',
-    quatrieme: '3',
-    troisieme: '4',
-    seconde: '5',
-    premiere: '6',
-    terminale: '7',
-  };
-
-  matiereToId = {
-    physique: '1',
-    mathematiques: '2',
-    chimie: '3',
-    biologie: '4',
-  };
 
   constructor(private http: HttpClient) {}
 
-  getCoursDuneClasse(classe: string): Observable<Array<Matiere>> {
-    return this.http.get<Array<Matiere>>(this.apiUrl + 'api/getSubjectClass/1');
+  getCoursDuneClasse(classe: string): Observable<Matiere[]> {
+    let classe1 = '1';
+    switch (classe) {
+      case 'sixieme':
+        classe1 = '1';
+        break;
+      case 'cinquieme':
+        classe1 = '2';
+        break;
+      case 'quatrieme':
+        classe1 = '3';
+        break;
+      case 'troisieme':
+        classe1 = '4';
+        break;
+      case 'seconde':
+        classe1 = '5';
+        break;
+      case 'premiere':
+        classe1 = '6';
+        break;
+      case 'terminale':
+        classe1 = '7';
+        break;
+      default:
+        console.log('No such class exists!');
+        break;
+    }
+
+    return this.http.get<Matiere[]>(
+      this.apiUrl + 'api/getSubjectClass/' + classe1
+    );
   }
 
-  getChapitresDuneMatiereDuneClasse(classe: string, matiere: string) {
-    return this.http.get<Array<Cours>>(this.apiUrl + 'api/course/');
+  getChapitresDuneMatiereDuneClasse(
+    classe: string,
+    matiere: string
+  ): Observable<Cours[]> {
+    let matiere1: string = '';
+    let classe1: string = '';
+    switch (matiere) {
+      case 'physique':
+        matiere1 = '1';
+        break;
+      case 'mathematiques':
+        matiere1 = '2';
+        break;
+      case 'chimie':
+        matiere1 = '3';
+        break;
+      case 'biologie':
+        matiere1 = '4';
+        break;
+      case 'geographie':
+        matiere1 = '5';
+        break;
+      case 'mecanique':
+        matiere1 = '6';
+        break;
+      default:
+        console.log('No such subject exists!');
+        break;
+    }
+    switch (classe) {
+      case 'sixieme':
+        classe1 = '1';
+        break;
+      case 'cinquieme':
+        classe1 = '2';
+        break;
+      case 'quatrieme':
+        classe1 = '3';
+        break;
+      case 'troisieme':
+        classe1 = '4';
+        break;
+      case 'seconde':
+        classe1 = '5';
+        break;
+      case 'premiere':
+        classe1 = '6';
+        break;
+      case 'terminale':
+        classe1 = '7';
+        break;
+      default:
+        console.log('No such class exists!');
+        break;
+    }
+    return this.http.get<Cours[]>(
+      this.apiUrl + 'api/course/' + '?subject=' + matiere1 + '&level=' + classe1
+    );
   }
 
-  getDetailDunChapitre(classe: string, matiere: string, titre: string) {}
+  getDetailDunChapitre(idLecon: string): Observable<Cours> {
+    return this.http.get<Cours>(this.apiUrl + 'api/course/' + idLecon);
+  }
 }

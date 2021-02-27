@@ -4,6 +4,9 @@
     <a *ngFor="let matiere of listeDesMatieres" (click)="goChapitres('mathematiques'); getListeDesMatieres()" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
       <span>{{matiere.name}}</span>
     </a>
+    <div *ngIf="listeDesMatieres.length===0" class="text-center">
+      Il n'y a aucune matière pour le moment
+    </div>
   </div>
 
 </div>

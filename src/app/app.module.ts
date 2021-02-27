@@ -2,6 +2,10 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { MarkdownModule } from 'ngx-markdown';
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSliderModule } from '@angular/material/slider';
 
 import 'hammerjs';
 
@@ -53,6 +57,10 @@ import { ExerciceDetailComponent } from './exercice-detail/exercice-detail.compo
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MarkdownModule.forRoot(),
+    MatCardModule,
+    MatButtonModule,
+    MatSliderModule,
   ],
   providers: [CoursService, CurrentPathService],
   bootstrap: [AppComponent],

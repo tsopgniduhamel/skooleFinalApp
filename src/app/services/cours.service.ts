@@ -14,7 +14,7 @@ export class CoursService {
 
   constructor(private http: HttpClient) {}
 
-  getCoursDuneClasse(classe: string): Observable<Matiere[]> {
+  getCoursDuneClasse(classe: string): Observable<any> {
     let classe1 = '1';
     switch (classe) {
       case 'sixieme':
@@ -43,7 +43,7 @@ export class CoursService {
         break;
     }
 
-    return this.http.get<Matiere[]>(
+    return this.http.get<any>(
       this.apiUrl + 'api/getSubjectClass/' + classe1
     );
   }

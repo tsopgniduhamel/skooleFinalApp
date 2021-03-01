@@ -1,7 +1,7 @@
 <div class="container" style="margin-top: 4%;">
   <h1 class="text-center">Choisis la matière pour continuer ... </h1>
   <div class="card-container">
-    <a *ngFor="let matiere of listeDesMatieres" (click)="goChapitres('mathematiques'); getListeDesMatieres()" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
+    <a *ngFor="let matiere of listeDesMatieres" (click)="goChapitres(matiere.name); getListeDesMatieres()" routerLinkActive="active" class="card"  rel="noopener" style="background-color: #deefe5; color:#008036;">
       <span>{{matiere.name}}</span>
     </a>
     <div *ngIf="listeDesMatieres.length===0" class="text-center">

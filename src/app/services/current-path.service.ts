@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Cours } from '../models/cours';
 
 @Injectable({
   providedIn: 'root',
@@ -7,7 +8,7 @@ export class CurrentPathService {
   classe: string = '';
   matiere: string = '';
   chapitre: string = '';
-  lecon: string = '';
+  lecon: any;
 
   getClasse(): string {
     return this.classe;
@@ -18,8 +19,8 @@ export class CurrentPathService {
   getChapitre(): string {
     return this.chapitre;
   }
-  getLecon(): string {
-    return this.chapitre;
+  getLecon(): any {
+    return this.lecon;
   }
   setClasse(classe: string) {
     this.classe = classe;

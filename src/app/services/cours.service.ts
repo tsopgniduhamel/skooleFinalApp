@@ -14,7 +14,7 @@ export class CoursService {
 
   constructor(private http: HttpClient) {}
 
-  getCoursDuneClasse(classe: string): Observable<Matiere[]> {
+  getCoursDuneClasse(classe: string): Observable<any> {
     let classe1 = '1';
     switch (classe) {
       case 'sixieme':
@@ -43,9 +43,7 @@ export class CoursService {
         break;
     }
 
-    return this.http.get<Matiere[]>(
-      this.apiUrl + 'api/getSubjectClass/' + classe1
-    );
+    return this.http.get<any>(this.apiUrl + 'api/getSubjectClass/' + classe1);
   }
 
   getChapitresDuneMatiereDuneClasse(
@@ -54,7 +52,7 @@ export class CoursService {
   ): Observable<Cours[]> {
     let matiere1: string = '';
     let classe1: string = '';
-    switch (matiere) {
+    switch (matiere.toLowerCase()) {
       case 'physique':
         matiere1 = '1';
         break;
@@ -77,7 +75,7 @@ export class CoursService {
         console.log('No such subject exists!');
         break;
     }
-    switch (classe) {
+    switch (classe.toLowerCase()) {
       case 'sixieme':
         classe1 = '1';
         break;

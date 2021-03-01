@@ -10,7 +10,7 @@ import { CurrentPathService } from './../services/current-path.service';
   styleUrls: ['./chapitres.component.scss'],
 })
 export class ChapitresComponent implements OnInit {
-  tousLesCours: any;
+  tousLesCours: Array<Cours> = [];
   constructor(
     private coursService: CoursService,
     private router: Router,
@@ -24,7 +24,13 @@ export class ChapitresComponent implements OnInit {
       this.currentPathService.getMatiere(),
       titre,
     ]);
+    for (let lecon in this.tousLesCours) {
+      if (titre in Object.keys(lecon)) {
+        this.currentPathService.setLecon(lecon);
+      }
+    }
     this.currentPathService.setLecon(titre);
+
     console.log(this.router.url);
   }
 
@@ -34,9 +40,10 @@ export class ChapitresComponent implements OnInit {
         this.currentPathService.getClasse(),
         this.currentPathService.getMatiere()
       )
-      .subscribe((tousLesCours) => {
-        this.tousLesCours = tousLesCours;
+      .subscribe((tousLesCours: any) => {
+        this.tousLesCours.push(...tousLesCours);
       });
+
     console.log('la route courante est : ', this.router.url);
     console.log('voici la liste des cours: ', this.tousLesCours);
   }

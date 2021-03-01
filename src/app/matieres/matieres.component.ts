@@ -31,8 +31,8 @@ export class MatieresComponent implements OnInit {
   ngOnInit(): void {
     this.coursService
       .getCoursDuneClasse(this.currentPathService.getClasse())
-      .subscribe((listeDesMatieres) => {
-        this.listeDesMatieres = listeDesMatieres;
+      .subscribe((listeDesMatieres: any) => {
+        this.listeDesMatieres.push(...listeDesMatieres['result']);
       });
     console.log('la liste des matieres est : ', this.listeDesMatieres);
   }
